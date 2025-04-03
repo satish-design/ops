@@ -1,0 +1,22 @@
+node 
+{   
+    def mavenHome = tool name: 'Maven'  
+    
+     stage ( 'checkout code')
+    {
+        git url: 'https://github.com/satish-design/ops.git'
+    }
+
+    stage( 'build'){
+        sh "$mavenHome/bin/mvn clean install"
+    }
+    
+     stage( 'test'){
+         withSonarQubeEnv('sonar'){
+         sh "$mavenHome/bin/mvn sonar:sonar"
+         
+         }
+         
+     }
+    
+}
