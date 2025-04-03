@@ -14,4 +14,9 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <properties>
+		<sonar.host.url>http://54.204.104.218:9000/</sonar.host.url>
+		<sonar.login>admin</sonar.login>
+		<sonar.password>admin</sonar.password> 
+		</properties>
 </project>
